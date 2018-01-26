@@ -57,6 +57,7 @@
         ,all_design_docs/2
         ,copy_doc/4, copy_doc/5
         ,move_doc/4, move_doc/5
+        ,maybe_update_doc/2
         ]).
 
 %% attachments
@@ -77,6 +78,7 @@
         ,get_result_doc/3, get_result_docs/3
         ,design_info/2
         ,design_compact/2
+        ,maybe_adapt_multilines/1
         ]).
 
 -export([get_uuid/0, get_uuid/1
@@ -212,6 +214,9 @@ do_revise_docs_from_folder(DbName, Sleep, [H|T]) ->
             do_revise_docs_from_folder(DbName, Sleep, T)
     end.
 
+-spec maybe_update_doc(kz_term:ne_binary(), kz_json:object()) ->
+                          {'ok', kz_json:object()} |
+                          data_error().
 maybe_update_doc(DbName, JObj) ->
     case should_update(DbName, JObj) of
         true -> ensure_saved(DbName, JObj);

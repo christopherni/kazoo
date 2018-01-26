@@ -448,3 +448,4 @@ pages:
   - 'Using Dialyzer': 'doc/engineering/dialyzer.md'
   - 'Webhooks': 'doc/engineering/webhooks.md'
   - 'Attachments': 'core/kazoo_attachments/README.md'
+  - 'Authorize Kazoo access 3rd party services': 'core/kazoo_attachments/doc/authorize_kazoo_access_storage_services.md'
